@@ -1,5 +1,4 @@
-# Intel-unnati
-Common integrated services for common people
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@ Common integrated services for common people
       box-sizing: border-box;
     }
     
-    body {
+     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
       color: #333;
