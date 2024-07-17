@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Common Integrated Services</title>
   <style>
-   
+    /* Existing styles */
+
     * {
       margin: 0;
       padding: 0;
@@ -71,31 +72,30 @@
       color: #004d40;
     }
     
-  
-    .education-section, .healthcare-section, .transport-section, .government-section, .school-directory, .hospital-directory {
+    .education-section, .healthcare-section, .transport-section, .financial-section, .government-section, .school-directory, .hospital-directory {
       display: none;
     }
 
-    .schools, .hospitals, .routes, .public-transport, .service-centers, .vehicle-renting, .government-services {
+    .schools, .hospitals, .routes, .public-transport, .service-centers, .vehicle-renting, .government-services, .financial-services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1rem;
     }
     
-    .school, .hospital, .route, .transport, .service-center, .vehicle, .government {
+    .school, .hospital, .route, .transport, .service-center, .vehicle, .government, .financial {
       background-color: #fff;
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
-    .school h2, .hospital h2, .route h2, .transport h2, .service-center h2, .vehicle h2, .government h2 {
+    .school h2, .hospital h2, .route h2, .transport h2, .service-center h2, .vehicle h2, .government h2, .financial h2 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: #004d40;
     }
     
-    .school p, .hospital p, .route p, .transport p, .service-center p, .vehicle p, .government p {
+    .school p, .hospital p, .route p, .transport p, .service-center p, .vehicle p, .government p, .financial p {
       font-size: 1.1rem;
       margin-bottom: 1rem;
     }
@@ -127,6 +127,7 @@
       <div class="service financial">
         <h2>Financial</h2>
         <p>Manage your finances and investments.</p>
+        <a href="#" onclick="showFinancialServices()">Explore more</a>
       </div>
       <div class="service government">
         <h2>Government Services</h2>
@@ -236,20 +237,127 @@
       <h2>Transport Services</h2>
       <div class="services">
         <div class="service">
-          <h2>Routes and Navigation</h2>
-          <p>Find routes and navigate easily.</p>
+          <h2>Routes & Directions</h2>
+          <a href="#" onclick="showRoutes()">View Routes</a>
         </div>
         <div class="service">
-          <h2>Public Transport and Stations</h2>
-          <p>Find information on public transport and stations.</p>
+          <h2>Public Transport</h2>
+          <a href="#" onclick="showPublicTransport()">Public Transport</a>
         </div>
         <div class="service">
-          <h2>Nearby Service Centers</h2>
-          <p>Locate nearby vehicle service centers.</p>
+          <h2>Service Centers</h2>
+          <a href="#" onclick="showServiceCenters()">View Service Centers</a>
         </div>
         <div class="service">
           <h2>Vehicle Renting</h2>
-          <p>Rent vehicles for your travel needs.</p>
+          <a href="#" onclick="showVehicleRenting()">Rent a Vehicle</a>
+        </div>
+        <a href="#" onclick="showMainServices()">Back to Main Services</a>
+      </div>
+
+      <section class="routes" id="routes" style="display:none;">
+        <h2>Routes & Directions</h2>
+        <div class="route">
+          <h2>Route A</h2>
+          <p><strong>Start:</strong> Point A</p>
+          <p><strong>End:</strong> Point B</p>
+          <p><strong>Stops:</strong> Stop 1, Stop 2, Stop 3</p>
+        </div>
+        <div class="route">
+          <h2>Route B</h2>
+          <p><strong>Start:</strong> Point C</p>
+          <p><strong>End:</strong> Point D</p>
+          <p><strong>Stops:</strong> Stop 4, Stop 5, Stop 6</p>
+        </div>
+        <div class="route">
+          <h2>Route C</h2>
+          <p><strong>Start:</strong> Point E</p>
+          <p><strong>End:</strong> Point F</p>
+          <p><strong>Stops:</strong> Stop 7, Stop 8, Stop 9</p>
+        </div>
+        <a href="#" onclick="hideRoutes()">Back to Transport Services</a>
+      </section>
+
+      <section class="public-transport" id="public-transport" style="display:none;">
+        <h2>Public Transport</h2>
+        <div class="transport">
+          <h2>Bus Service</h2>
+          <p>Timings, routes, and fares for buses.</p>
+        </div>
+        <div class="transport">
+          <h2>Train Service</h2>
+          <p>Timings, routes, and fares for trains.</p>
+        </div>
+        <div class="transport">
+          <h2>Metro Service</h2>
+          <p>Timings, routes, and fares for metro.</p>
+        </div>
+        <a href="#" onclick="hidePublicTransport()">Back to Transport Services</a>
+      </section>
+
+      <section class="service-centers" id="service-centers" style="display:none;">
+        <h2>Service Centers</h2>
+        <div class="service-center">
+          <h2>Service Center A</h2>
+          <p><strong>Location:</strong> City A</p>
+          <p><strong>Contact:</strong> info@servicecentera.com</p>
+        </div>
+        <div class="service-center">
+          <h2>Service Center B</h2>
+          <p><strong>Location:</strong> City B</p>
+          <p><strong>Contact:</strong> info@servicecenterb.com</p>
+        </div>
+        <div class="service-center">
+          <h2>Service Center C</h2>
+          <p><strong>Location:</strong> City C</p>
+          <p><strong>Contact:</strong> info@servicecenterc.com</p>
+        </div>
+        <a href="#" onclick="hideServiceCenters()">Back to Transport Services</a>
+      </section>
+
+      <section class="vehicle-renting" id="vehicle-renting" style="display:none;">
+        <h2>Vehicle Renting</h2>
+        <div class="vehicle">
+          <h2>Vehicle A</h2>
+          <p><strong>Type:</strong> Car</p>
+          <p><strong>Rental Price:</strong> $30/day</p>
+        </div>
+        <div class="vehicle">
+          <h2>Vehicle B</h2>
+          <p><strong>Type:</strong> Bike</p>
+          <p><strong>Rental Price:</strong> $15/day</p>
+        </div>
+        <div class="vehicle">
+          <h2>Vehicle C</h2>
+          <p><strong>Type:</strong> Van</p>
+          <p><strong>Rental Price:</strong> $50/day</p>
+        </div>
+        <a href="#" onclick="hideVehicleRenting()">Back to Transport Services</a>
+      </section>
+    </section>
+
+    <section class="financial-section" id="financial-section">
+      <h2>Financial Services</h2>
+      <div class="financial-services">
+        <div class="financial">
+          <h2>Banking</h2>
+          <p>Find the best banking services for you.</p>
+          <p><strong>Services:</strong> Savings, Checking, Loans</p>
+        </div>
+        <div class="financial">
+          <h2>Insurance</h2>
+          <p>Get the best insurance policies.</p>
+          <p><strong>Types:</strong> Health, Life, Vehicle</p>
+        </div>
+        <div class="financial">
+          <h2>Investments</h2>
+          <p>Grow your wealth with smart investments.</p>
+          <p><strong>Options:</strong> Stocks, Bonds, Mutual Funds</p>
+        </div>
+        <div class="financial">
+          <h2>Budgeting Tools</h2>
+          <p>Manage your finances with ease.</p>
+          <p><strong>Tools:</strong> Expense Tracker, Savings Calculator</p>
         </div>
         <a href="#" onclick="showMainServices()">Back to Main Services</a>
       </div>
@@ -259,28 +367,20 @@
       <h2>Government Services</h2>
       <div class="services">
         <div class="service">
-          <h2>Government Directory</h2>
-          <p>Access contact information for government offices.</p>
+          <h2>Public Services</h2>
+          <a href="#">View Public Services</a>
         </div>
         <div class="service">
-          <h2>Citizen Profiles</h2>
-          <p>View detailed profiles of citizens.</p>
+          <h2>Documents & Forms</h2>
+          <a href="#">Download Forms</a>
         </div>
         <div class="service">
-          <h2>Public Records</h2>
-          <p>Search public records and documents.</p>
+          <h2>Online Applications</h2>
+          <a href="#">Apply Online</a>
         </div>
         <div class="service">
-          <h2>Legal Services</h2>
-          <p>Find legal assistance and information.</p>
-        </div>
-        <div class="service">
-          <h2>Social Services</h2>
-          <p>Access social services and support.</p>
-        </div>
-        <div class="service">
-          <h2>Licenses and Permits</h2>
-          <p>Apply for licenses and permits.</p>
+          <h2>Service Centers</h2>
+          <a href="#">Locate Service Centers</a>
         </div>
         <a href="#" onclick="showMainServices()">Back to Main Services</a>
       </div>
@@ -303,22 +403,19 @@
       document.getElementById('transport-section').style.display = 'block';
     }
 
+    function showFinancialServices() {
+      document.getElementById('services-section').style.display = 'none';
+      document.getElementById('financial-section').style.display = 'block';
+    }
+
     function showGovernmentServices() {
       document.getElementById('services-section').style.display = 'none';
       document.getElementById('government-section').style.display = 'block';
     }
 
-    function showMainServices() {
-      document.getElementById('education-section').style.display = 'none';
-      document.getElementById('healthcare-section').style.display = 'none';
-      document.getElementById('transport-section').style.display = 'none';
-      document.getElementById('government-section').style.display = 'none';
-      document.getElementById('services-section').style.display = 'block';
-    }
-
     function showSchoolDirectory() {
-      document.getElementById('education-section').style.display = 'none';
       document.getElementById('school-directory').style.display = 'block';
+      document.getElementById('education-section').style.display = 'none';
     }
 
     function hideSchoolDirectory() {
@@ -327,14 +424,64 @@
     }
 
     function showHospitalDirectory() {
-      document.getElementById('healthcare-section').style.display = 'none';
       document.getElementById('hospital-directory').style.display = 'block';
+      document.getElementById('healthcare-section').style.display = 'none';
     }
 
     function hideHospitalDirectory() {
       document.getElementById('hospital-directory').style.display = 'none';
       document.getElementById('healthcare-section').style.display = 'block';
     }
+
+    function showRoutes() {
+      document.getElementById('routes').style.display = 'block';
+      document.getElementById('transport-section').style.display = 'none';
+    }
+
+    function hideRoutes() {
+      document.getElementById('routes').style.display = 'none';
+      document.getElementById('transport-section').style.display = 'block';
+    }
+
+    function showPublicTransport() {
+      document.getElementById('public-transport').style.display = 'block';
+      document.getElementById('transport-section').style.display = 'none';
+    }
+
+    function hidePublicTransport() {
+      document.getElementById('public-transport').style.display = 'none';
+      document.getElementById('transport-section').style.display = 'block';
+    }
+
+    function showServiceCenters() {
+      document.getElementById('service-centers').style.display = 'block';
+      document.getElementById('transport-section').style.display = 'none';
+    }
+
+    function hideServiceCenters() {
+      document.getElementById('service-centers').style.display = 'none';
+      document.getElementById('transport-section').style.display = 'block';
+    }
+
+    function showVehicleRenting() {
+      document.getElementById('vehicle-renting').style.display = 'block';
+      document.getElementById('transport-section').style.display = 'none';
+    }
+
+    function hideVehicleRenting() {
+      document.getElementById('vehicle-renting').style.display = 'none';
+      document.getElementById('transport-section').style.display = 'block';
+    }
+
+    function showMainServices() {
+      document.getElementById('services-section').style.display = 'grid';
+      document.getElementById('education-section').style.display = 'none';
+      document.getElementById('healthcare-section').style.display = 'none';
+      document.getElementById('transport-section').style.display = 'none';
+      document.getElementById('financial-section').style.display = 'none';
+      document.getElementById('government-section').style.display = 'none';
+    }
   </script>
 </body>
 </html>
+
